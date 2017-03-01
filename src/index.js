@@ -1,0 +1,73 @@
+import {
+  AccessDenied,
+  ArgumentError,
+  BaseObject,
+  EasyGoverness,
+  GermanGoverness,
+  HeadGoverness,
+  Logger,
+  MiddlewareGoverness,
+  NoExposedMethodError,
+  NoGovernessError,
+  NoPurposeError,
+  NoSandboxError,
+  Perimeter,
+  PubSub,
+  Purpose,
+  RestrictedMethodError,
+  Rule,
+  Sandbox,
+  StrictGoverness,
+  VERSION,
+  WrongRuleDefinition,
+  createPerimeter,
+  createRule,
+  createSandbox,
+  guard,
+  isGoverness,
+  isPerimeter,
+  isPurpose,
+  isRule,
+  isSandbox,
+  sandbox
+} from 'kindergarten';
+
+import install from './install';
+
+export default {
+  install
+};
+
+export {
+  AccessDenied,
+  ArgumentError,
+  BaseObject,
+  EasyGoverness,
+  GermanGoverness,
+  HeadGoverness,
+  Logger,
+  MiddlewareGoverness,
+  NoExposedMethodError,
+  NoGovernessError,
+  NoPurposeError,
+  NoSandboxError,
+  Perimeter,
+  PubSub,
+  Purpose,
+  RestrictedMethodError,
+  Rule,
+  Sandbox,
+  StrictGoverness,
+  VERSION,
+  WrongRuleDefinition,
+  createPerimeter,
+  createRule,
+  createSandbox,
+  guard,
+  isGoverness,
+  isPerimeter,
+  isPurpose,
+  isRule,
+  isSandbox,
+  sandbox
+};

@@ -1,5 +1,7 @@
 # vue-kindergarten
 
+[![Build Status](https://travis-ci.org/JiriChara/vue-kindergarten.svg?branch=master)](https://travis-ci.org/JiriChara/vue-kindergarten)
+
 ## Introduction
 
 **vue-kindergarten** is a plugin for VueJS 2.0 that integrates [kindergarten](https://github.com/JiriChara/kindergarten) into your VueJS applications. It helps you to authorize your components, routes and the rest of your application in very modular way. If you are not familiar with **kindergarten** yet, I highly recommend you to check out [the README](https://github.com/JiriChara/kindergarten) first.

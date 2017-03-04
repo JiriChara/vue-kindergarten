@@ -50,7 +50,7 @@ First we need to define our perimeters. Perimeter is a module that represents so
 import { createPerimeter } from 'vue-kindergarten';
 
 createPerimeter({
-  purpose: 'articles',
+  purpose: 'article',
 
   govern: {
     // everybody can read articles

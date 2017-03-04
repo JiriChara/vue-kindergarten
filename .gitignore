@@ -1,2 +1,7 @@
 node_modules
 lib
+.nyc_output
+.tern-port
+test/e2e/screenshots
+test/e2e/reports
+selenium-debug.log

@@ -1,0 +1,1 @@
+export default perimeters => perimeters || [];

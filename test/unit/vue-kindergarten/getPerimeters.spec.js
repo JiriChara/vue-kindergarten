@@ -14,7 +14,7 @@ test('throws an error if perimeters are not perimeters', (t) => {
 
   t.throws(
     () => getPerimeters(perimeters),
-    'Perimeters must be instance of perimeter'
+    'Perimeters must be instance of perimeter.'
   );
 });
 

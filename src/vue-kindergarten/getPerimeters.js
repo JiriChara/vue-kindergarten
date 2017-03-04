@@ -5,7 +5,7 @@ export default (perimeters = []) => {
 
   perimeters.forEach((perimeter) => {
     if (!isPerimeter(perimeter)) {
-      throw new ArgumentError('Perimeters must be instance of perimeter');
+      throw new ArgumentError('Perimeters must be instance of perimeter.');
     }
   });
 

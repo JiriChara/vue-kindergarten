@@ -1,8 +1,15 @@
 import {
   HeadGoverness,
-  isGoverness
+  isGoverness,
+  ArgumentError
 } from 'kindergarten';
 
-export default governess => (
-  (isGoverness(governess)) ? governess : new HeadGoverness()
-);
+export default (governess) => {
+  if (!governess) return new HeadGoverness();
+
+  if (!isGoverness(governess)) {
+    throw new ArgumentError('Governess must be instance of HeadGoverness.');
+  }
+
+  return governess;
+};

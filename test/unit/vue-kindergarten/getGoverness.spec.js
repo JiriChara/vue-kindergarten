@@ -7,8 +7,11 @@ test('returns instance of HeadGoverness if no governess given', (t) => {
   t.true(getGoverness() instanceof HeadGoverness);
 });
 
-test('returns head governess when no governess given', (t) => {
-  t.true(getGoverness('foo') instanceof HeadGoverness);
+test('throws an error if governess is not governess', (t) => {
+  t.throws(
+    () => getGoverness('foo'),
+    'Governess must be instance of HeadGoverness.'
+  );
 });
 
 test('returns given governess', (t) => {

@@ -1,6 +1,8 @@
 const spawn = require('cross-spawn');
 
-let args = process.argv.slice(2);
+/* eslint-disable no-var */
+var args = process.argv.slice(2);
+/* eslint-enable */
 
 const server = args.indexOf('--dev') > -1
   ? null

@@ -7,6 +7,10 @@ test('returns empty array if no perimeters given', (t) => {
   t.deepEqual(getPerimeters(), []);
 });
 
+test('throws an error if perimeters are not array', (t) => {
+  t.throws(() => getPerimeters({}), 'Array of perimeters must be given.');
+});
+
 test('throws an error if perimeters are not perimeters', (t) => {
   const perimeters = [
     1, 2, 3

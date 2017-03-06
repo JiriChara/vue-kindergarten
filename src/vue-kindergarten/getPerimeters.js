@@ -1,7 +1,9 @@
 import { isPerimeter, ArgumentError } from 'kindergarten';
 
 export default (perimeters = []) => {
-  if (!Array.isArray(perimeters)) return [];
+  if (!Array.isArray(perimeters)) {
+    throw new ArgumentError('Array of perimeters must be given.');
+  }
 
   perimeters.forEach((perimeter) => {
     if (!isPerimeter(perimeter)) {

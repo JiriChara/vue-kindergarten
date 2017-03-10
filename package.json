@@ -59,7 +59,7 @@
     ],
     "concurrency": 5,
     "failFast": true,
-    "tap": true,
+    "tap": false,
     "powerAssert": false,
     "babel": "inherit",
     "require": [

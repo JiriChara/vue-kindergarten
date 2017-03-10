@@ -56,3 +56,11 @@ test('passes a given array of sandbox methods', (t) => {
   const secondArg = t.context.spy.getCalls(0)[0].args[1];
   t.is(secondArg.useSandboxMethods, useSandboxMethods);
 });
+
+test('passes extend purpose option', (t) => {
+  const exposePurpose = false;
+
+  install(Vue, { exposePurpose });
+  const secondArg = t.context.spy.getCalls(0)[0].args[1];
+  t.is(secondArg.exposePurpose, exposePurpose);
+});

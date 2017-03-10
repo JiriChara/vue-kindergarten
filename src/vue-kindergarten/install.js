@@ -13,8 +13,9 @@ export default (Vue,
       'getPerimeter',
       'getPerimeters',
       'governess'
-    ]
+    ],
+    exposePurpose = true
   } = {}
 ) => {
-  decorateComponents(Vue, { child, useSandboxMethods });
+  decorateComponents(Vue, { child, useSandboxMethods, exposePurpose });
 };

@@ -31,7 +31,7 @@ import store from './store';
 Vue.use(VueKindergarten, {
   // Getter of your current user.
   // If you use vuex, then store will be passed
-  child: ({ store }) => {
+  child: (store) => {
     return store.state.user;
     // or
     // return decode(localStorage.getItem('jwt'));

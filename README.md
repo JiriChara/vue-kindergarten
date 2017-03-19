@@ -58,17 +58,16 @@ import { createPerimeter } from 'vue-kindergarten';
 createPerimeter({
   purpose: 'article',
 
-  govern: {
-    // everybody can read articles
-    'can read': () => true,
+  can: {
+    read: () => true
 
     // only admin or moderator can update articles
-    'can update': function (article) {
+    update(article) {
       return this.isAmin() || (this.isCreator(article) && this.isModerator());
     },
 
     // if user can update articles then she can also destroy them
-    'can destroy': function (article) {
+    destroy(article) {
       return this.isAllowed('update', article);
     }
   },

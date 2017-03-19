@@ -799,6 +799,15 @@ babel-plugin-transform-es2015-modules-commonjs@^6.18.0, babel-plugin-transform-e
     babel-template "^6.23.0"
     babel-types "^6.23.0"
 
+babel-plugin-transform-es2015-modules-commonjs@^6.24.0:
+  version "6.24.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-modules-commonjs/-/babel-plugin-transform-es2015-modules-commonjs-6.24.0.tgz#e921aefb72c2cc26cb03d107626156413222134f"
+  dependencies:
+    babel-plugin-transform-strict-mode "^6.22.0"
+    babel-runtime "^6.22.0"
+    babel-template "^6.23.0"
+    babel-types "^6.23.0"
+
 babel-plugin-transform-es2015-modules-systemjs@^6.22.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-modules-systemjs/-/babel-plugin-transform-es2015-modules-systemjs-6.23.0.tgz#ae3469227ffac39b0310d90fec73bfdc4f6317b0"
@@ -2867,12 +2876,6 @@ home-or-tmp@^2.0.0:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.1"
 
-hookies@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/hookies/-/hookies-2.0.5.tgz#e6044f0e8a0c05186550b7f0f73af0fe443d58e1"
-  dependencies:
-    lodash "^4.16.2"
-
 hosted-git-info@^2.1.4:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.2.0.tgz#7a0d097863d886c0fabbdcd37bf1758d8becf8a5"
@@ -3483,12 +3486,12 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.0.2"
 
-kindergarten@^1.3.5:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/kindergarten/-/kindergarten-1.3.5.tgz#799ac1a2a89c25a0239ef5a50b1b6b01216d8985"
+kindergarten@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/kindergarten/-/kindergarten-1.4.0.tgz#21770c4382e42258c4fe31ebb338027a96736345"
   dependencies:
-    hookies "^2.0.5"
-    lodash "^4.1.0"
+    babel-plugin-transform-es2015-modules-commonjs "^6.24.0"
+    lodash "^4.17.4"
 
 klaw@^1.0.0:
   version "1.3.1"
@@ -3730,7 +3733,7 @@ lodash.some@^4.4.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.some/-/lodash.some-4.6.0.tgz#1bb9f314ef6b8baded13b549169b2a945eb68e4d"
 
-lodash@^4.0.0, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.16.2, lodash@^4.2.0, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 

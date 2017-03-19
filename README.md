@@ -134,6 +134,10 @@ createPerimeter({
 
 In example above we have injected our `articlesPerimeter` into our component. Our component act as sandbox now. We can call all the methods that are available in the Sandbox directly on our component.
 
+## More About Vue-Kindergarten
+
+[Role Based Authorization for your Vue.js and Nuxt.js Applications Using vue-kindergarten](https://medium.com/@JiriChara/role-based-authorization-for-your-vue-js-and-nuxt-js-applications-using-vue-kindergarten-fd483e013ec5#.y0xnnidl6)
+
 ## License
 
 The MIT License (MIT) - See file 'LICENSE' in this project

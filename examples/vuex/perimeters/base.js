@@ -5,13 +5,15 @@ import { createPerimeter } from 'vue-kindergarten';
 export default createPerimeter({
   purpose: 'base',
 
-  govern: {
-    'can view': () => true,
-    'can update': function (article) {
+  can: {
+    view: () => true,
+
+    update(article) {
       return this.child.isAdmin ||
         (this.child.isModerator && article.userId === this.child.id);
     },
-    'can destroy': function (article) {
+
+    destroy(article) {
       return this.isAllowed('update', article);
     }
   },

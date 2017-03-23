@@ -3486,9 +3486,9 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.0.2"
 
-kindergarten@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/kindergarten/-/kindergarten-1.4.0.tgz#21770c4382e42258c4fe31ebb338027a96736345"
+kindergarten@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/kindergarten/-/kindergarten-1.4.1.tgz#1be7060a7fbbafa7f6fd6fd2df5477654c30cd70"
   dependencies:
     babel-plugin-transform-es2015-modules-commonjs "^6.24.0"
     lodash "^4.17.4"

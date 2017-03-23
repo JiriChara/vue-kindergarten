@@ -1,6 +1,6 @@
 {
   "name": "vue-kindergarten",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Kindergarten plugin for VueJS 2.0",
   "main": "lib/index.js",
   "author": "Jiri Chara <jiri@chara.vip>",
@@ -60,7 +60,7 @@
     "webpack-hot-middleware": "^2.17.1"
   },
   "dependencies": {
-    "kindergarten": "^1.4.0"
+    "kindergarten": "^1.4.1"
   },
   "ava": {
     "files": [

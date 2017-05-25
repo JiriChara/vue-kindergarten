@@ -133,6 +133,89 @@ createPerimeter({
 
 In example above we have injected our `articlesPerimeter` into our component. Our component act as sandbox now. We can call all the methods that are available in the Sandbox directly on our component.
 
+### Protecting Routes
+
+```js
+import Router from 'vue-router';
+
+import Home from '@/components/Home';
+import Articles from '@/components/Articles';
+import EditArticle from '@/components/EditArticle';
+import RouteGoverness from '@/governesses/RouteGoverness';
+
+const router = new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+
+    {
+      path: '/articles',
+      name: 'articles',
+      component: Articles,
+      meta: {
+        perimeter: articlesPerimeter,
+        perimeterAction: 'read',
+      }
+    },
+
+    {
+      path: '/articles/:id/edit',
+      name: 'edit-article',
+      component: EditArticle,
+      meta: {
+        perimeter: articlesPerimeter,
+        perimeterAction: 'update',
+      }
+    }
+  ]
+});
+
+router.beforeEach((to, from, next) => {
+  to.matched.forEach((routeRecord) => {
+    const perimeter = routeRecord.meta.perimeter;
+    const Governess = routeRecord.meta.governess || RouteGoverness;
+    const action = routeRecord.meta.perimeterAction || 'route';
+
+    if (perimeter) {
+      const sandbox = createSandbox(child(), {
+        governess: new Governess({
+          from,
+          to,
+          next,
+        }),
+
+        perimeters: [
+          perimeter,
+        ],
+      });
+
+      return sandbox.guard(action);
+    }
+
+    return next();
+  });
+});
+
+export default router;
+```
+
+#### Route Governess
+
+```js
+import { HeadGoverness } from 'vue-kindergarten';
+
+export default class RouteGoverness extends HeadGoverness {
+  guard(action, { next }) {
+    // or your very own logic to redirect user
+    // see. https://github.com/JiriChara/vue-kindergarten/issues/5 for inspiration
+    return this.isAllowed(action) ? next('/') : next();
+  }
+}
+```
+
 ## More About Vue-Kindergarten
 
 [Role Based Authorization for your Vue.js and Nuxt.js Applications Using vue-kindergarten](https://medium.com/@JiriChara/role-based-authorization-for-your-vue-js-and-nuxt-js-applications-using-vue-kindergarten-fd483e013ec5#.y0xnnidl6)

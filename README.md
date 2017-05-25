@@ -15,7 +15,7 @@
 ```
 yarn add vue-kindergarten
 # or
-npm add vue-kindergarten
+npm install vue-kindergarten
 ```
 
 And you can register the plugin like this:

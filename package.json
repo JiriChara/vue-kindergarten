@@ -49,7 +49,7 @@
     "nyc": "^10.3.2",
     "phantomjs-prebuilt": "^2.1.14",
     "rimraf": "^2.6.1",
-    "selenium-server": "^3.4.0",
+    "selenium-server": "^2.53.1",
     "sinon": "^2.3.2",
     "vue": "^2.3.3",
     "vue-loader": "^12.2.0",

@@ -1,6 +1,6 @@
 {
   "name": "vue-kindergarten",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Kindergarten plugin for VueJS 2.0",
   "main": "lib/index.js",
   "author": "Jiri Chara <jiri@chara.vip>",

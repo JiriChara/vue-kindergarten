@@ -22,26 +22,32 @@ export default (Vue = {}, { child, useSandboxMethods, exposePurpose } = {}) => {
 
       const perimeters = getPerimeters(options.perimeters || rootOptions.perimeters);
       const governess = getGoverness(options.governess || rootOptions.governess);
-      const sandboxChild = getChild(child, { store });
-
-      this.$sandbox = createSandbox(sandboxChild, {
+      const sandboxChild = () => getChild(child, { store });
+      const sandboxGetter = () => createSandbox(sandboxChild(), {
         governess,
         perimeters
       });
 
+      const sandbox = sandboxGetter();
+
+      options.computed = options.computed || {};
+      options.methods = options.methods || {};
+
+      options.computed.$sandbox = sandboxGetter;
+
       // Add helper methods from sandbox
       (useSandboxMethods || []).forEach((methodName) => {
         const $methodName = `$${methodName}`;
-        const sandboxMethod = this.$sandbox[methodName];
-        this[$methodName] = typeof sandboxMethod === 'function' ?
-          sandboxMethod.bind(this.$sandbox) : sandboxMethod;
+        const sandboxMethod = sandbox[methodName];
+        options.computed[$methodName] = typeof sandboxMethod === 'function' ?
+          () => sandboxMethod.bind(sandboxGetter()) : () => sandboxMethod;
       });
 
       // Add purpose
       if (exposePurpose) {
-        this.$sandbox.getPerimeters().forEach((perimeter) => {
+        sandbox.getPerimeters().forEach((perimeter) => {
           const purpose = perimeter.getPurpose();
-          this[`$${purpose}`] = this.$sandbox[purpose];
+          options.computed[`$${purpose}`] = () => sandboxGetter()[purpose];
         });
       }
     }

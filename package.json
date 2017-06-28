@@ -11,7 +11,7 @@
     "clean": "rimraf lib coverage esdoc",
     "doc": "mkdirp esdoc && esdoc -c esdoc.json",
     "lint": "eslint src test examples",
-    "report": "nyc report --reporter=lcov",
+    "report": "nyc report --reporter=lcov && codecov",
     "test:e2e": "node test/e2e/runner.js",
     "test:unit": "nyc ava",
     "test": "npm run lint && npm run test:unit && npm run test:e2e && npm run report",
@@ -60,6 +60,7 @@
     "webpack-hot-middleware": "^2.18.0"
   },
   "dependencies": {
+    "codecov": "^2.2.0",
     "kindergarten": "^1.4.1"
   },
   "ava": {

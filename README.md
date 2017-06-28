@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/JiriChara/vue-kindergarten.svg?branch=master)](https://travis-ci.org/JiriChara/vue-kindergarten)
 [![Test Coverage](https://lima.codeclimate.com/github/JiriChara/vue-kindergarten/badges/coverage.svg)](https://lima.codeclimate.com/github/JiriChara/vue-kindergarten/coverage)
+[![codecov](https://codecov.io/gh/JiriChara/vue-kindergarten/branch/master/graph/badge.svg)](https://codecov.io/gh/JiriChara/vue-kindergarten)
 [![NPM Version](https://img.shields.io/npm/v/vue-kindergarten.svg)](https://www.npmjs.com/package/vue-kindergarten)
 [![NPM Dowloads](https://img.shields.io/npm/dm/vue-kindergarten.svg)](https://www.npmjs.com/package/vue-kindergarten)
 [![Dependency Status](https://gemnasium.com/badges/github.com/JiriChara/vue-kindergarten.svg)](https://gemnasium.com/github.com/JiriChara/vue-kindergarten)

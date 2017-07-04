@@ -138,11 +138,16 @@ In example above we have injected our `articlesPerimeter` into our component. Ou
 
 ```js
 import Router from 'vue-router';
+import { createSandbox } from 'vue-kindergarten';
 
 import Home from '@/components/Home';
 import Articles from '@/components/Articles';
 import EditArticle from '@/components/EditArticle';
 import RouteGoverness from '@/governesses/RouteGoverness';
+
+import articlesPerimeter from '@/perimeters/articlesPerimeter';
+
+import child from '@/child';
 
 const router = new Router({
   routes: [
@@ -175,7 +180,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  to.matched.forEach((routeRecord) => {
+  to.matched.some((routeRecord) => {
     const perimeter = routeRecord.meta.perimeter;
     const Governess = routeRecord.meta.governess || RouteGoverness;
     const action = routeRecord.meta.perimeterAction || 'route';
@@ -193,7 +198,7 @@ router.beforeEach((to, from, next) => {
         ],
       });
 
-      return sandbox.guard(action);
+      return sandbox.guard(action, { to, from, next });
     }
 
     return next();

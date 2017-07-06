@@ -6,6 +6,7 @@ import VueKindergarten from 'vue-kindergarten';
 import store from './store';
 import App from './App.vue';
 import basePerimeter from './perimeters/base';
+import commentsPerimeter from './perimeters/comments';
 
 Vue.use(VueKindergarten, {
   child: s => s.state.user
@@ -14,7 +15,8 @@ Vue.use(VueKindergarten, {
 export default new Vue({
   el: '#app',
   perimeters: [
-    basePerimeter
+    basePerimeter,
+    commentsPerimeter
   ],
   store,
   render: h => h(App)

@@ -15,6 +15,10 @@ module.exports = {
       .assert.visible('.article-3')
       .assert.visible('.article-3 .edit')
       .assert.visible('.article-3 .remove')
+
+      .assert.visible('.comments')
+      .assert.visible('.update-comment')
+
       .end();
   }
 };

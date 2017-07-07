@@ -61,7 +61,7 @@
     "webpack-hot-middleware": "^2.18.0"
   },
   "dependencies": {
-    "kindergarten": "^1.5.1"
+    "kindergarten": "^1.5.2"
   },
   "ava": {
     "files": [

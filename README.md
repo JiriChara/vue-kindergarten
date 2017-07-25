@@ -64,7 +64,7 @@ createPerimeter({
 
     // only admin or moderator can update articles
     update(article) {
-      return this.isAmin() || (this.isCreator(article) && this.isModerator());
+      return this.isAdmin() || (this.isCreator(article) && this.isModerator());
     },
 
     // if user can update articles then she can also destroy them

@@ -239,7 +239,7 @@ Implement your `child` getter in `child.js`:
 export default (store) => store && store.state.user;
 ```
 
-Add file inside of `nuxt.config.js`:
+Add reference to your plugin inside of `nuxt.config.js`:
 
 ```js
 module.exports = {

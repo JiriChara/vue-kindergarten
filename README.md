@@ -187,11 +187,7 @@ router.beforeEach((to, from, next) => {
 
     if (perimeter) {
       const sandbox = createSandbox(child(), {
-        governess: new Governess({
-          from,
-          to,
-          next,
-        }),
+        governess: new Governess(),
 
         perimeters: [
           perimeter,
@@ -221,6 +217,121 @@ export default class RouteGoverness extends HeadGoverness {
   }
 }
 ```
+
+## Usage with Nuxt.js
+
+Register plugin in `plugins/vue-kindergarten.js`:
+
+```js
+import Vue from 'vue';
+import VueKindergarten from 'vue-kindergarten';
+
+Vue.use(VueKindergarten, {
+  child: (store) => {
+    return store ? store.state.user : null;
+  }
+});
+```
+
+Add file inside of `nuxt.config.js`:
+
+```js
+module.exports = {
+  plugins: ['~/plugins/vue-kindergarten']
+};
+```
+
+You can now use `vue-kindergarten` in your Nuxt templates.
+
+To protect our routes we need to create a Nuxt middleware in `middleware/vue-kindergarten`:
+
+```js
+import { createSandbox } from 'vue-kindergarten';
+import RouteGoverness from '~/governesses/RouteGoverness';
+
+import child from '~/child';
+
+export default (context) => {
+  const { route, error, redirect, store, isServer } = context;
+  route.matched.some((routeRecord) => {
+    const options = isServer ? routeRecord.components.default : routeRecord.components.default.options;
+    const perimeter = options.routePerimeter;
+    const Governess =  options.routeGoverness || RouteGoverness;
+    const action = options.routePerimeterAction || 'route';
+
+    if (perimeter) {
+      const sandbox = createSandbox(child(store), {
+        governess: new Governess(context),
+
+        perimeters: [
+          perimeter,
+        ],
+      });
+
+      return sandbox.guard(action, { redirect });
+    }
+  });
+}
+```
+
+and again register your middleware in you Nuxt config:
+
+```js
+module.exports = {
+  plugins: [
+    '~/plugins/vue-kindergarten'
+  ],
+
+  router: {
+    middleware: 'vue-kindergarten'
+  },
+};
+```
+
+This middleware will look in you component for `routePerimeter` and for `routePerimeterAction` and will check if the condition passes with the currently logged-in user.
+
+```js
+import { createPerimeter } from 'vue-kindergarten';
+
+import articlesPerimeter from '~/perimeters/articles';
+
+// This component will only be accessible if user can update articles
+export default {
+  routePerimeter: articlesPerimeter,
+  routePerimeterAction: 'update'
+}
+```
+
+The implementation of your default routing governess might look like this:
+
+```js
+import { HeadGoverness } from 'vue-kindergarten';
+
+export default class RouteGoverness extends HeadGoverness {
+  guard(action, { redirect }) {
+    if (this.isNotAllowed(action)) {
+      redirect('/');
+    }
+  }
+}
+```
+
+You can also implement you own governess per each component to define a different redirect logic based on context:
+
+```js
+import { createPerimeter } from 'vue-kindergarten';
+
+import articlesPerimeter from '~/perimeters/articles';
+import ArticlesRoutingGoverness from '~/governesses/ArticlesRoutingGoverness';
+
+// This component will only be accessible if user can update articles
+export default {
+  routePerimeter: articlesPerimeter,
+  routePerimeterAction: 'update',
+  routeGoverness: ArticlesRoutingGoverness
+}
+```
+
 
 ## More About Vue-Kindergarten
 

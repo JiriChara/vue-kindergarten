@@ -233,6 +233,12 @@ Vue.use(VueKindergarten, {
 });
 ```
 
+Implement your `child` getter in `child.js`:
+
+```js
+export default (store) => store && store.state.user;
+```
+
 Add file inside of `nuxt.config.js`:
 
 ```js

@@ -226,10 +226,10 @@ Register plugin in `plugins/vue-kindergarten.js`:
 import Vue from 'vue';
 import VueKindergarten from 'vue-kindergarten';
 
+import child from '~/child';
+
 Vue.use(VueKindergarten, {
-  child: (store) => {
-    return store ? store.state.user : null;
-  }
+  child
 });
 ```
 

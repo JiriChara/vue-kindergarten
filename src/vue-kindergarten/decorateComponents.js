@@ -9,9 +9,7 @@ import getPerimeters from './getPerimeters';
 
 export default (Vue = {}, { child, useSandboxMethods, exposePurpose } = {}) => {
   if (!Vue.mixin) {
-    throw new ArgumentError(
-      'Vue must be instance of Vue. Did you initialize the plugin properly?'
-    );
+    throw new ArgumentError('Vue must be instance of Vue. Did you initialize the plugin properly?');
   }
 
   Vue.mixin({

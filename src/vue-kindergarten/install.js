@@ -1,6 +1,7 @@
 import decorateComponents from './decorateComponents';
 
-export default (Vue,
+export default (
+  Vue,
   {
     child = null,
     useSandboxMethods = [

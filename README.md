@@ -1,7 +1,6 @@
 # vue-kindergarten
 
 [![Build Status](https://travis-ci.org/JiriChara/vue-kindergarten.svg?branch=master)](https://travis-ci.org/JiriChara/vue-kindergarten)
-[![Test Coverage](https://lima.codeclimate.com/github/JiriChara/vue-kindergarten/badges/coverage.svg)](https://lima.codeclimate.com/github/JiriChara/vue-kindergarten/coverage)
 [![codecov](https://codecov.io/gh/JiriChara/vue-kindergarten/branch/master/graph/badge.svg)](https://codecov.io/gh/JiriChara/vue-kindergarten)
 [![NPM Version](https://img.shields.io/npm/v/vue-kindergarten.svg)](https://www.npmjs.com/package/vue-kindergarten)
 [![NPM Dowloads](https://img.shields.io/npm/dm/vue-kindergarten.svg)](https://www.npmjs.com/package/vue-kindergarten)
@@ -260,7 +259,7 @@ import child from '~/child';
 export default (context) => {
   const { route, error, redirect, store, isServer } = context;
   route.matched.some((routeRecord) => {
-    const options = isServer ? routeRecord.components.default : routeRecord.components.default.options;
+    const options = routeRecord.components.default.options;
     const perimeter = options.routePerimeter;
     const Governess =  options.routeGoverness || RouteGoverness;
     const action = options.routePerimeterAction || 'route';
